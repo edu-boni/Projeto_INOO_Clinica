@@ -4,10 +4,46 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner ler = new Scanner(System.in);
+        Scanner leitura = new Scanner(System.in);
+        Menu menu = new Menu(leitura);
 
-        System.out.println("Bem-vindo à Clínica de Animais!");
         while (true) {
+            System.out.println("\nBem-vindo à Clínica de Animais!");
+            System.out.println("Como deseja acessar?\n" +
+                               "1. Me cadastrar como dono\n" +
+                               "2. Acessar como funcionário\n" +
+                               "0. Sair");
+            System.out.print("Escolha uma opção: ");
+
+            if (!leitura.hasNextInt()) {
+                System.out.println("Por favor, insira um número válido.");
+                leitura.nextLine();
+                continue;
+            }
+
+            int opcao = leitura.nextInt();
+            leitura.nextLine();
+
+            switch (opcao) {
+                case 1:
+                    Dono.cadastrarDono(leitura);
+                    break;
+                case 2:
+                    menu.exibirMenuFuncionario();
+                    break;
+                case 0:
+                    System.out.println("O sistema será encerrado. Obrigado por utilizar!");
+                    leitura.close();
+                    return;
+                default:
+                    System.out.println("Opção inválida. Tente novamente.");
+            }
+        }
+    }
+}
+
+
+/* while (true) {
             System.out.println("\nMenu Principal:\n" +
                                "1. Cadastrar Dono\n" +
                                "2. Cadastrar Animal\n" +
@@ -24,47 +60,4 @@ public class Main {
                 System.out.println("Por favor, insira um número válido.");
                 ler.nextLine(); 
                 continue;
-            }
-
-            int opcao = ler.nextInt();
-            ler.nextLine(); 
-
-            switch (opcao) {
-                case 1:
-                    Dono.cadastrarDono(ler);  
-                    break;
-                /*case 2:
-                    cadastrarAnimal();
-                    break;
-                case 3:
-                    cadastrarFuncionario();
-                    break;
-                case 4:
-                    listarFuncionarios();
-                    break;
-                case 5:
-                    listarAnimais();
-                    break;
-                case 6:
-                    listarDonosEAnimais();
-                    break;
-                case 7:
-                    gerarRelatorioAtendimentos();
-                    break;
-                case 8:
-                    editarOuRemoverRegistro();
-                    break;
-                case 9:
-                    alterarStatusAnimal();
-                    break;*/
-                case 0:
-                    System.out.println("Saindo do sistema. Até logo!");
-                    ler.close();
-                    return;
-                default:
-                    System.out.println("Opção inválida. Tente novamente.");
-            }  
-        }
-     
-    }
-}
+            } */
