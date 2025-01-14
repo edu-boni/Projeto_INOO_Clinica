@@ -45,12 +45,12 @@ public class Dono {
 
         Dono novoDono = new Dono(nome, email, telefone, endereco);
         donos.add(novoDono);
-        System.out.println("Dono cadastrado com sucesso!");
+        System.out.println("\nDono cadastrado com sucesso!");
     }
 
     public static void listarDonos() {
         if (donos.isEmpty()) {
-            System.out.println("Não há donos cadastrados.");
+            System.out.println("\nNão há donos cadastrados.");
         } else {
             for (Dono dono : donos) {
                 System.out.println("Nome: " + dono.getNome());
