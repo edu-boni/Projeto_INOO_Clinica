@@ -20,14 +20,20 @@ public class Main {
                                "9. Alterar Status de Saúde e Higiene dos Animais\n" +
                                "0. Sair\n");
             System.out.print("Escolha uma opção: ");
+            if (!ler.hasNextInt()) { 
+                System.out.println("Por favor, insira um número válido.");
+                ler.nextLine(); 
+                continue;
+            }
+
             int opcao = ler.nextInt();
             ler.nextLine(); 
 
             switch (opcao) {
                 case 1:
-                    cadastrarDono();
+                    Dono.cadastrarDono(ler);  
                     break;
-                case 2:
+                /*case 2:
                     cadastrarAnimal();
                     break;
                 case 3:
@@ -50,13 +56,15 @@ public class Main {
                     break;
                 case 9:
                     alterarStatusAnimal();
-                    break;
+                    break;*/
                 case 0:
                     System.out.println("Saindo do sistema. Até logo!");
+                    ler.close();
                     return;
                 default:
                     System.out.println("Opção inválida. Tente novamente.");
-            }
+            }  
         }
+     
     }
 }
