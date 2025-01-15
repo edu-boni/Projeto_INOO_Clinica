@@ -2,11 +2,19 @@ package com.clinica_de_animais.projeto.model;
 
 public class Coelho extends Animal{
     
-    public Coelho(String nome, int idade, String especie){
-        super(nome, idade, especie);
+    public Coelho(String nome, int idade, boolean paraAdocao){
+        super(nome, idade, "Coelho", paraAdocao);
     }
-    public Coelho(String nome, String especie){
-        super(nome, especie);
+    public Coelho(String nome, boolean paraAdocao){
+        super(nome, "Coelho", paraAdocao);
+    }
+
+    public void saltar(){
+        System.out.println("O Coelho dá uma duplo twist carpado");
+    }
+
+    public void som(){
+        System.out.println("Squick squick");
     }
 
     public void exibirFoto(){
@@ -20,7 +28,5 @@ public class Coelho extends Animal{
         System.out.println("    `-----` `--`");
     }
 
-    public void saltar(){
-        System.out.println("O Coelho dá uma duplo twist carpado");
-    }
+    
 }

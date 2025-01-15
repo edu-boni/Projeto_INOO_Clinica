@@ -9,6 +9,10 @@ public class Menu {
     }
 
     public void exibirMenuFuncionario() {
+
+        //Acho que não precisa escolher qual tipo de funcionário é
+        //Quando cadastrar já vai ter escrito na função e aí a gente faz um get
+        //e verifica qual é a área de atuação
         System.out.println("\nSelecione qual funcionário você é:\n" +
                            "1. Administrador\n" +
                            "2. Groomer\n" +
@@ -45,11 +49,13 @@ public class Menu {
 
     public void exibirMenuAdministrador() {
         while (true) {
+            System.out.println("_______________________________");
             System.out.println("\nBem-vindo Administrador!");
             System.out.println("1. Cadastrar novo funcionário\n" +
                                "2. Cadastrar animal para adoção\n" +
                                "3. Listar todos funcionários, usuários e animais\n" +
                                "0. Sair");
+            System.out.println("_______________________________|");
             System.out.print("Escolha uma opção: ");
 
             if (!leitura.hasNextInt()) {
@@ -73,10 +79,12 @@ public class Menu {
                     Dono.listarDonos();
                     break;
                 case 0:
-                    System.out.println("Voltando ao menu de funcionários.");
+                    System.out.println("Voltando ao menu.");
                     return; 
                 default:
+                    if(opcao_adm !=0){
                     System.out.println("Opção inválida. Tente novamente.");
+                    }
             }
         }
     }

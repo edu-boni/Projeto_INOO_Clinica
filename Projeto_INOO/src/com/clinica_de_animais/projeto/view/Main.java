@@ -7,21 +7,47 @@ public class Main {
         Scanner leitura = new Scanner(System.in);
         Menu menu = new Menu(leitura);
 
-        Tartaruga t1 = new Tartaruga("brice","Tartaruga");
+        Jabuti t1 = new Jabuti(null, false);
+        Coelho c1 = new Coelho(null, false);
+        Cachorro c2 = new Cachorro(null, false);
+        Cavalo c3 = new Cavalo(null, false);
+        Gato g1 = new Gato(null, false);
+        Peixe p1 = new Peixe(null, false);
+        Passaro p2 = new Passaro(null, false);
+        
+        p1.som();
+        p1.exibirFoto();
+
+        t1.som();
+        t1.saltar();
+        t1.dormir();
         t1.exibirFoto();
-        Coelho c1 = new Coelho("brice","Coelho");
+
+        c1.som();
+        c1.adoecer();
         c1.exibirFoto();
-        Cachorro c2 = new Cachorro("bruno", "Cachorro");
+        
+        g1.som();
+        g1.saltar();
+        g1.exibirFoto();
+        
+        c2.som();
+        c2.sujar();
         c2.exibirFoto();
+        
+        p2.som();
+        p2.exibirFoto();
+        //c3.exibirFoto();
 
         while (true) {
-            System.out.println("_______________________________");
-            System.out.println("Bem-vindo à Clínica Pet Repete!\n");
-            System.out.println("Como deseja acessar?\n" +
-                               "1. Sou dono de pet\n" +
-                               "2. Sou funcionário\n" +
-                               "0. Sair");
-            System.out.println("_______________________________|");
+            System.out.println("________________________________");
+            System.out.println("Bem-vindo à clínica Pet Repete! |");
+            System.out.println("                                |");
+            System.out.println("Como deseja acessar?            |");
+            System.out.println("1. Sou dono de pet              |");
+            System.out.println("2. Sou funcionário              |");
+            System.out.println("0. Sair                         |");
+            System.out.println("________________________________|");
             System.out.print("\nEscolha uma opção: ");
 
             if (!leitura.hasNextInt()) {
@@ -35,7 +61,8 @@ public class Main {
 
             switch (opcao) {
                 case 1:
-                    Dono.cadastrarDono(leitura);
+                    //menu.exiibirMenuDono();
+                    //Tem que dar a opção de login e de cadastro
                     break;
                 case 2:
                     menu.exibirMenuFuncionario();
@@ -44,6 +71,8 @@ public class Main {
                     System.out.println("O sistema será encerrado. Obrigado por utilizar!");
                     leitura.close();
                     return;
+                case 56213:
+                    menu.exibirMenuAdministrador();
                 default:
                     System.out.println("Opção inválida. Tente novamente.");
             }
