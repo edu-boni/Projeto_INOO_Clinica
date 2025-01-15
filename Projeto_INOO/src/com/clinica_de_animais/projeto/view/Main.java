@@ -7,13 +7,22 @@ public class Main {
         Scanner leitura = new Scanner(System.in);
         Menu menu = new Menu(leitura);
 
+        Tartaruga t1 = new Tartaruga("brice","Tartaruga");
+        t1.exibirFoto();
+        Coelho c1 = new Coelho("brice","Coelho");
+        c1.exibirFoto();
+        Cachorro c2 = new Cachorro("bruno", "Cachorro");
+        c2.exibirFoto();
+
         while (true) {
-            System.out.println("\nBem-vindo à Clínica de Animais!");
+            System.out.println("_______________________________");
+            System.out.println("Bem-vindo à Clínica Pet Repete!\n");
             System.out.println("Como deseja acessar?\n" +
-                               "1. Me cadastrar como dono\n" +
-                               "2. Acessar como funcionário\n" +
+                               "1. Sou dono de pet\n" +
+                               "2. Sou funcionário\n" +
                                "0. Sair");
-            System.out.print("Escolha uma opção: ");
+            System.out.println("_______________________________|");
+            System.out.print("\nEscolha uma opção: ");
 
             if (!leitura.hasNextInt()) {
                 System.out.println("Por favor, insira um número válido.");
