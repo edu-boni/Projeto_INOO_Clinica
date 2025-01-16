@@ -66,7 +66,7 @@ public class Main {
                     System.out.println("O sistema será encerrado. Obrigado por utilizar!");
                     leitura.close();
                     return;
-                case 56213:
+                case 1357:
                     menu.exibirMenuAdministrador();
                 default:
                     System.out.println("Opção inválida. Tente novamente.");

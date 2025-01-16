@@ -49,14 +49,18 @@ public class Menu {
 
     public void exibirMenuAdministrador() {
         while (true) {
-            System.out.println("_______________________________");
-            System.out.println("\nBem-vindo Administrador!");
-            System.out.println("1. Cadastrar novo funcionário\n" +
-                               "2. Cadastrar animal para adoção\n" +
-                               "3. Listar todos funcionários, usuários e animais\n" +
-                               "0. Sair");
-            System.out.println("_______________________________|");
-            System.out.print("Escolha uma opção: ");
+            System.out.println("__________________________________");
+            System.out.println("|                                 |");
+            System.out.println("| Bem-vindo, Administrador!       |");
+            System.out.println("|                                 |");
+            System.out.println("| Como deseja acessar?            |");
+            System.out.println("|                                 |");
+            System.out.println("| 1. Cadastrar novo funcionário   |");
+            System.out.println("| 2. Cadastrar animal para adoção |");
+            System.out.println("| 3. Listar todos os cadastros    |");
+            System.out.println("| 0. Sair                         |");
+            System.out.println("|_________________________________|");
+            System.out.print("\n> Escolha uma opção: ");
 
             if (!leitura.hasNextInt()) {
                 System.out.println("Por favor, insira um número válido.");

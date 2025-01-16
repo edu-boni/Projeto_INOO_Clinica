@@ -47,26 +47,32 @@ public class Dono {
         String endereco = leitura.nextLine();
         System.out.print("Digite a senha: ");
         String senha = leitura.nextLine();
+
+        while (senha.length() < 4){
+            System.out.println("A senha deve ter pelo menos 4 caracteres");
+            System.out.println("Digite a senha: ");
+            senha = leitura.nextLine();
+        }
+
         System.out.print("Confirme a senha: ");
         String senha_temp = leitura.nextLine();
        
-        while (!senha.equals(senha_temp) || senha.length() < 4) {
-            if (senha.length() < 4) {
-                System.out.println("A senha deve ter pelo menos 4 caracteres.");
-            } else {
-                System.out.println("As senhas devem ser iguais!");
-            }
-
+        while (!senha.equals(senha_temp)) {
+            System.out.println("As senhas devem ser iguais!");
             System.out.print("Digite a senha: ");
             senha = leitura.nextLine();
-
+            while (senha.length() < 4){
+                System.out.println("A senha deve ter pelo menos 4 caracteres");
+                System.out.println("Digite a senha: ");
+                senha = leitura.nextLine();
+            }
             System.out.print("Confirme a senha: ");
             senha_temp = leitura.nextLine();
-
+        }
         Dono novoDono = new Dono(nome, email, telefone, endereco, senha);
         donos.add(novoDono);
         System.out.println("\nDono cadastrado com sucesso!");
-        }
+        
     }
 
     public static void realizarLoginDono(Scanner leitura) {
