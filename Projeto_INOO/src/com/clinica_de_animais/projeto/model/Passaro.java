@@ -3,14 +3,14 @@ package com.clinica_de_animais.projeto.model;
 public class Passaro extends Animal{
     
     public Passaro(String nome, int idade, boolean paraAdocao){
-        super(nome, idade, "Passaro", paraAdocao);
+        super(nome, idade, paraAdocao);
     }
     public Passaro(String nome, boolean paraAdocao){
-        super(nome, "Passaro", paraAdocao);
+        super(nome, paraAdocao);
     }
 
     public void saltar(){
-        System.out.println("O "+getEspecie()+" sai voando.");
+        System.out.println("O pássaro sai voando.");
     }
 
     public void som(){

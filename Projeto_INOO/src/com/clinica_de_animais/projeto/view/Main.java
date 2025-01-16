@@ -21,7 +21,6 @@ public class Main {
         c1.exibirFoto();
         
         g1.som();
-        g1.saltar();
         g1.exibirFoto();
         
         c2.som();

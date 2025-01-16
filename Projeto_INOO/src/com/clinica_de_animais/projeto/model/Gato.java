@@ -3,10 +3,10 @@ package com.clinica_de_animais.projeto.model;
 public class Gato extends Animal {
     
     public Gato(String nome, int idade, boolean paraAdocao){
-        super(nome, idade, "Gato", paraAdocao);
+        super(nome, idade, paraAdocao);
     }
     public Gato(String nome, boolean paraAdocao){
-        super(nome, "Gato", paraAdocao);
+        super(nome, paraAdocao);
     }
 
     public void som(){

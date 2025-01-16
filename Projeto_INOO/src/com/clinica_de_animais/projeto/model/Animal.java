@@ -1,21 +1,18 @@
 package com.clinica_de_animais.projeto.model;
 
 public abstract class Animal {
-    private String nome;
-    private float idade;
-    private String especie;
-    private boolean saudavel = true;
-    private boolean limpo = true;
-    private boolean paraAdocao = true;
+    protected String nome;
+    protected float idade;
+    protected boolean saudavel = true;
+    protected boolean limpo = true;
+    protected boolean paraAdocao = true;
 
-    public Animal(String nome, float idade, String especie, boolean paraAdocao){
+    public Animal(String nome, float idade, boolean paraAdocao){
         this.nome = nome;
         this.idade = idade;
-        this.especie = especie;
     }
-    public Animal(String nome, String especie, boolean paraAdocao){
+    public Animal(String nome, boolean paraAdocao){
         this.nome = nome;
-        this.especie = especie;
     }
 
     public void sujar(){
@@ -28,17 +25,9 @@ public abstract class Animal {
         System.out.println(getNome()+" está doente");
     }
 
-    public void saltar(){
-        System.out.println("O "+getEspecie()+" salta. Tóin tóin tóin");
-    }
-
-    public void som(){
-        System.out.println("O "+getEspecie()+" faz um som");
-    }
-
-    public void exibirFoto(){
-        System.out.println("Esse animal não tem foto :(");
-    }
+    //public abstract void assustar();
+    public abstract void som();
+    public abstract void exibirFoto();
 
     public String getNome() {
         return nome;
@@ -46,10 +35,6 @@ public abstract class Animal {
 
     public float getIdade() {
         return idade;
-    }
-
-    public String getEspecie() {
-        return especie;
     }
 
     public boolean isLimpo() {

@@ -3,10 +3,10 @@ package com.clinica_de_animais.projeto.model;
 public class Jabuti extends Animal {
     
     public Jabuti(String nome, int idade, boolean paraAdocao){
-        super(nome, idade, "Jabuti", paraAdocao);
+        super(nome, idade, paraAdocao);
     }
     public Jabuti(String nome, boolean paraAdocao){
-        super(nome, "Jabuti", paraAdocao);
+        super(nome, paraAdocao);
     }
 
     public void saltar(){
