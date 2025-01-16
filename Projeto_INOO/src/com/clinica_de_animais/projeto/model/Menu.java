@@ -88,4 +88,43 @@ public class Menu {
             }
         }
     }
+
+    public void exibirMenuDono(){
+        while (true) {
+            System.out.println("________________________");
+            System.out.println("|                       |");
+            System.out.println("| > Dono de Pet         |");
+            System.out.println("|                       |");
+            System.out.println("| 1. Realizar cadastro  |");
+            System.out.println("| 2. Realizar login     |");
+            System.out.println("| 0. Voltar             |");
+            System.out.println("|_______________________|");
+            System.out.print("\n> Escolha uma opção: ");
+
+            if (!leitura.hasNextInt()) {
+                System.out.println("Por favor, insira um número válido.");
+                leitura.nextLine();
+                continue;
+            }
+
+            int opcao_login = leitura.nextInt();
+            leitura.nextLine();
+
+            switch (opcao_login) {
+                case 1:
+                    Dono.cadastrarDono(leitura);
+                    break;
+                case 2:
+                //cadastarar nimal
+                    break;
+                case 0:
+                    System.out.println("Voltando ao menu.");
+                    return; 
+                default:
+                    if(opcao_login !=0){
+                    System.out.println("Opção inválida. Tente novamente.");
+                    }
+            }
+        }
+    }
 }

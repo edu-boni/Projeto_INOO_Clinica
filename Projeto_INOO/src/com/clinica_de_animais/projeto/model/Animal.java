@@ -1,6 +1,6 @@
 package com.clinica_de_animais.projeto.model;
 
-public class Animal {
+public abstract class Animal {
     private String nome;
     private float idade;
     private String especie;
@@ -30,10 +30,6 @@ public class Animal {
 
     public void saltar(){
         System.out.println("O "+getEspecie()+" salta. Tóin tóin tóin");
-    }
-
-    public void dormir(){
-        System.out.println("O "+getEspecie()+" está dormindo zZzZzZZ");
     }
 
     public void som(){

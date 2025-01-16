@@ -4,18 +4,21 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Dono {
-    private static ArrayList<Dono> donos = new ArrayList<>();
     private String nome;
     private String email;
     private String telefone;
     private String endereco;
+    private String senha;
 
-    public Dono(String nome, String email, String telefone, String endereco) {
+    public Dono(String nome, String email, String telefone, String endereco, String senha) {
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
         this.endereco = endereco;
+        this.senha = senha;
     }
+
+    private static ArrayList<Dono> donos = new ArrayList<>();
 
     public String getNome() {
         return nome;
@@ -34,19 +37,46 @@ public class Dono {
     }
 
     public static void cadastrarDono(Scanner leitura) {
-        System.out.print("Digite o nome do dono: ");
+        System.out.print("Nome: ");
         String nome = leitura.nextLine();
-        System.out.print("Digite o email do dono: ");
+        System.out.print("Email: ");
         String email = leitura.nextLine();
-        System.out.print("Digite o telefone do dono: ");
+        System.out.print("Telefone: ");
         String telefone = leitura.nextLine();
-        System.out.print("Digite o endereço do dono: ");
+        System.out.print("Endereço: ");
         String endereco = leitura.nextLine();
+        System.out.print("Digite a senha: ");
+        String senha = leitura.nextLine();
+        System.out.print("Confirme a senha: ");
+        String senha_temp = leitura.nextLine();
+       
+        while (!senha.equals(senha_temp) || senha.length() < 4) {
+            if (senha.length() < 4) {
+                System.out.println("A senha deve ter pelo menos 4 caracteres.");
+            } else {
+                System.out.println("As senhas devem ser iguais!");
+            }
 
-        Dono novoDono = new Dono(nome, email, telefone, endereco);
+            System.out.print("Digite a senha: ");
+            senha = leitura.nextLine();
+
+            System.out.print("Confirme a senha: ");
+            senha_temp = leitura.nextLine();
+
+        Dono novoDono = new Dono(nome, email, telefone, endereco, senha);
         donos.add(novoDono);
         System.out.println("\nDono cadastrado com sucesso!");
+        }
     }
+
+    public static void realizarLoginDono(Scanner leitura) {
+        System.out.print("Email: ");
+        String email = leitura.nextLine();
+
+        System.out.print("Digite a senha: ");
+        String senha = leitura.nextLine();
+
+        }
 
     public static void listarDonos() {
         if (donos.isEmpty()) {

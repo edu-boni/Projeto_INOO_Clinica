@@ -6,21 +6,14 @@ public class Main {
     public static void main(String[] args) {
         Scanner leitura = new Scanner(System.in);
         Menu menu = new Menu(leitura);
-
         Jabuti t1 = new Jabuti(null, false);
         Coelho c1 = new Coelho(null, false);
         Cachorro c2 = new Cachorro(null, false);
-        Cavalo c3 = new Cavalo(null, false);
         Gato g1 = new Gato(null, false);
-        Peixe p1 = new Peixe(null, false);
         Passaro p2 = new Passaro(null, false);
-        
-        p1.som();
-        p1.exibirFoto();
 
         t1.som();
         t1.saltar();
-        t1.dormir();
         t1.exibirFoto();
 
         c1.som();
@@ -40,15 +33,17 @@ public class Main {
         //c3.exibirFoto();
 
         while (true) {
-            System.out.println("________________________________");
-            System.out.println("Bem-vindo à clínica Pet Repete! |");
-            System.out.println("                                |");
-            System.out.println("Como deseja acessar?            |");
-            System.out.println("1. Sou dono de pet              |");
-            System.out.println("2. Sou funcionário              |");
-            System.out.println("0. Sair                         |");
-            System.out.println("________________________________|");
-            System.out.print("\nEscolha uma opção: ");
+            System.out.println("__________________________________");
+            System.out.println("|                                 |");
+            System.out.println("| Bem-vindo à clínica Pet Repete! |");
+            System.out.println("|                                 |");
+            System.out.println("| Como deseja acessar?            |");
+            System.out.println("|                                 |");
+            System.out.println("| 1. Sou dono de pet              |");
+            System.out.println("| 2. Sou funcionário              |");
+            System.out.println("| 0. Sair                         |");
+            System.out.println("|_________________________________|");
+            System.out.print("\n> Escolha uma opção: ");
 
             if (!leitura.hasNextInt()) {
                 System.out.println("Por favor, insira um número válido.");
@@ -61,7 +56,7 @@ public class Main {
 
             switch (opcao) {
                 case 1:
-                    //menu.exiibirMenuDono();
+                    menu.exibirMenuDono();
                     //Tem que dar a opção de login e de cadastro
                     break;
                 case 2:
