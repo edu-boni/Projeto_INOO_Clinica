@@ -56,7 +56,6 @@ public class Main {
             switch (opcao) {
                 case 1:
                     menu.exibirMenuDono();
-                    //Tem que dar a opção de login e de cadastro
                     break;
                 case 2:
                     menu.exibirMenuFuncionario();

@@ -119,7 +119,7 @@ public class Menu {
                     Dono.cadastrarDono(leitura);
                     break;
                 case 2:
-                //cadastarar nimal
+                    menuLogar();
                     break;
                 case 0:
                     System.out.println("Voltando ao menu.");
@@ -131,4 +131,37 @@ public class Menu {
             }
         }
     }
+
+    public void menuLogar(){
+        while (true) {
+            System.out.println("__________________________");
+            System.out.println("|                         |");
+            System.out.println("| > Dono de Pet           |");
+            System.out.println("|                         |");
+            System.out.println("| 1. Logar usando email   |");
+            System.out.println("| 2. Logar usando CPF     |");
+            System.out.println("| 0. Voltar               |");
+            System.out.println("|_________________________|");
+            System.out.print("\n> Escolha uma opção: ");
+
+            if (!leitura.hasNextInt()) {
+                System.out.println("Por favor, insira um número válido.");
+                leitura.nextLine();
+                continue;
+            }
+
+            int opcao_login = leitura.nextInt();
+            leitura.nextLine();
+
+            if (opcao_login == 0){
+                System.out.println("Voltando ao menu.");
+                return; 
+            }else if (opcao_login != 0 && opcao_login != 1 && opcao_login != 2){
+                System.out.println("Opção inválida. Tente novamente.");
+            }else{
+                Dono.realizarLoginDono(leitura, opcao_login);
+            }
+        }
+    }
 }
+
