@@ -58,7 +58,7 @@ public class Main {
                     menu.exibirMenuDono();
                     break;
                 case 2:
-                    menu.exibirMenuFuncionario();
+                    Funcionario.realizarLoginFuncionario(leitura);
                     break;
                 case 0:
                     System.out.println("O sistema será encerrado. Obrigado por utilizar!");

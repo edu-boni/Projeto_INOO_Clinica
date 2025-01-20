@@ -41,9 +41,9 @@ public class Dono {
         return cpf;
     }
 
-   public String getSenha() {
+    public String getSenha() {
        return senha;
-   }
+    }
 
     public static void cadastrarDono(Scanner leitura) {
         System.out.print("Nome: ");
@@ -95,8 +95,19 @@ public class Dono {
         Dono novoDono = new Dono(nome, email, cpf, telefone, endereco, senha);
         donos.add(novoDono);
         System.out.println("\nDono cadastrado com sucesso!");
-    }
 
+        System.out.println("Deseja cadastrar um animal agora?");
+        System.out.println("1. Sim");
+        System.out.println("2. Não");
+        int opcao = leitura.nextInt();
+        leitura.nextLine(); 
+
+        if (opcao == 1) {
+            //Animal.cadastrarAnimal(leitura);
+        } else {
+            System.out.println("Cadastro do dono finalizado. Você pode cadastrar um animal mais tarde.");
+        }
+    }
 
     public static void realizarLoginDono(Scanner leitura, int opcao_login) {
         String identificador;

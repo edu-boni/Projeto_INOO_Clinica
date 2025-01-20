@@ -48,4 +48,6 @@ public abstract class Animal {
     public boolean isParaAdocao() {
         return paraAdocao;
     }
+
+    
 }

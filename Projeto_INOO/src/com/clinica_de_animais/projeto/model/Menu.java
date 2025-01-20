@@ -7,46 +7,7 @@ public class Menu {
     public Menu(Scanner leitura) {
         this.leitura = leitura;
     }
-
-    public void exibirMenuFuncionario() {
-
-        //Acho que não precisa escolher qual tipo de funcionário é
-        //Quando cadastrar já vai ter escrito na função e aí a gente faz um get
-        //e verifica qual é a área de atuação
-        System.out.println("\nSelecione qual funcionário você é:\n" +
-                           "1. Administrador\n" +
-                           "2. Groomer\n" +
-                           "3. Veterinário\n" +
-                           "0. Voltar");
-        System.out.print("Escolha uma opção: ");
-
-        if (!leitura.hasNextInt()) {
-            System.out.println("Por favor, insira um número válido.");
-            leitura.nextLine();
-            return;
-        }
-
-        int opcao = leitura.nextInt();
-        leitura.nextLine();
-
-        switch (opcao) {
-            case 1:
-                exibirMenuAdministrador(); 
-                break;
-            case 2:
-                //gromer
-                break;
-            case 3:
-                //vet
-                break;
-            case 0:
-                System.out.println("Voltando ao menu principal.");
-                break;
-            default:
-                System.out.println("Opção inválida. Tente novamente.");
-        }
-    }
-
+    
     public void exibirMenuAdministrador() {
         while (true) {
             System.out.println("__________________________________");
@@ -73,7 +34,7 @@ public class Menu {
 
             switch (opcao_adm) {
                 case 1:
-                //cadastarr funcinoario
+                    Funcionario.cadastrarFuncionario(leitura);
                     break;
                 case 2:
                 //cadastarar nimal
