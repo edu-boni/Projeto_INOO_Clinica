@@ -34,14 +34,15 @@ public class Funcionario {
     }
 
     public static void cadastrarFuncionario(Scanner leitura) {
-        System.out.print("Nome: ");
+        System.out.println("\n> Cadastro de Funcionário");
+        System.out.print("\nNome: ");
         String nome = leitura.nextLine();
 
         System.out.print("CPF: ");
         String cpf = leitura.nextLine();
         for (Funcionario funcionario : funcionarios) {
             if (cpf.equalsIgnoreCase(funcionario.getCpf())) {
-                System.out.println("Este CPF já está cadastrado. Tente outro ou faça login.");
+                System.out.println("\nEste CPF já está cadastrado. Tente outro ou faça login.");
                 return;
             }
         }
@@ -50,13 +51,17 @@ public class Funcionario {
         int opcao;
 
         do {
-            System.out.println("Escolha o cargo:");
-            System.out.println("1. Groomer");
-            System.out.println("2. Veterinário");
-            System.out.print("> Digite o número correspondente: ");
+            System.out.println("________________________");
+            System.out.println("|                      |");
+            System.out.println("| > Escolha o cargo:   |");
+            System.out.println("|                      |");
+            System.out.println("| 1. Groomer           |");
+            System.out.println("| 2. Veterinário       |");
+            System.out.println("|______________________|");
+            System.out.print("\n> Digite o número correspondente: ");
 
             if (!leitura.hasNextInt()) {
-                System.out.println("Entrada inválida! Digite 1 para Groomer ou 2 para Veterinário.");
+                System.out.println("\nEntrada inválida! Digite 1 para Groomer ou 2 para Veterinário.");
                 leitura.nextLine(); 
                 continue;
             }
@@ -72,17 +77,17 @@ public class Funcionario {
                         cargo = "Veterinário";
                         break;
                     default:
-                        System.out.println("Opção inválida! Escolha 1 para Groomer ou 2 para Veterinário.");
+                        System.out.println("\nOpção inválida! Escolha 1 para Groomer ou 2 para Veterinário.");
                 }
             } while (cargo.isEmpty());
 
             String senha, senhaTemp = "";;
             do {
-                System.out.print("Digite a senha (mínimo 4 caracteres): ");
+                System.out.print("\nDigite a senha (mínimo 4 caracteres): ");
                 senha = leitura.nextLine();
 
                 if (senha.length() < 4) {
-                    System.out.println("A senha deve ter pelo menos 4 caracteres.");
+                    System.out.println("\nA senha deve ter pelo menos 4 caracteres.");
                     continue;
                 }
 
@@ -90,7 +95,7 @@ public class Funcionario {
                 senhaTemp = leitura.nextLine();
 
                 if (!senha.equals(senhaTemp)) {
-                    System.out.println("As senhas devem ser iguais!");
+                    System.out.println("\nAs senhas devem ser iguais!");
                 }
         } while (senha.length() < 4 || !senha.equals(senhaTemp));
 
@@ -100,16 +105,17 @@ public class Funcionario {
     }
 
     public static void realizarLoginFuncionario(Scanner leitura) {
-        System.out.print("CPF: ");
+        System.out.println("\n> Login Funcionário");
+        System.out.print("\nCPF: ");
         String identificador = leitura.nextLine().trim();
 
-        System.out.print("Digite a senha: ");
+        System.out.print("\nDigite a senha: ");
         String senha = leitura.nextLine();
 
         for (Funcionario funcionario : funcionarios) {
             if (identificador.equalsIgnoreCase(funcionario.getCpf())) {
                 if (senha.equals(funcionario.getSenha())) {
-                    System.out.println("\nLogin realizado com sucesso! Bem-vindo, Funcionário(a)" + funcionario.getNome() + "!");
+                    System.out.println("\nLogin realizado com sucesso! Bem-vindo, Funcionário(a) " + funcionario.getNome() + "!");
                     //chama o menu funcionario provavelmente?
                     return;
                 } else {

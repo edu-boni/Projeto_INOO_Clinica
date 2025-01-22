@@ -46,14 +46,16 @@ public class Dono {
     }
 
     public static void cadastrarDono(Scanner leitura) {
-        System.out.print("Nome: ");
+        System.out.println("\n> Cadastro de Tutor de Pet");
+
+        System.out.print("\nNome: ");
         String nome = leitura.nextLine();
 
         System.out.print("Email: ");
         String email = leitura.nextLine();
         for (Dono dono : donos) {
             if (email.equalsIgnoreCase(dono.getEmail())) {
-                System.out.println("Este e-mail não está disponível.\nSe você é o dono deste e-mail, tente realizar o login");
+                System.out.println("\nEste e-mail não está disponível.\nSe você é o dono deste e-mail, tente realizar o login");
                 return;
             }
         }
@@ -62,7 +64,7 @@ public class Dono {
         String cpf = leitura.nextLine();
         for (Dono dono : donos) {
             if (cpf.equalsIgnoreCase(dono.getCpf())) {
-                System.out.println("Este CPF não está disponível.\nSe você é o dono deste CPF, tente realizar o login");
+                System.out.println("\nEste CPF não está disponível.\nSe você é o dono deste CPF, tente realizar o login");
                 return;
             }
         }
@@ -80,7 +82,7 @@ public class Dono {
             System.out.print("Digite a senha (mínimo 4 caracteres): ");
             senha = leitura.nextLine();
             if (senha.length() < 4) {
-                System.out.println("A senha deve ter pelo menos 4 caracteres.");
+                System.out.println("\nA senha deve ter pelo menos 4 caracteres.");
                 continue; 
             }
 
@@ -88,54 +90,69 @@ public class Dono {
             senhaTemp = leitura.nextLine();
 
             if (!senha.equals(senhaTemp)) {
-                System.out.println("As senhas devem ser iguais!");
+                System.out.println("\nAs senhas devem ser iguais!");
             }
         } while (senha.length() < 4 || !senha.equals(senhaTemp));
 
         Dono novoDono = new Dono(nome, email, cpf, telefone, endereco, senha);
         donos.add(novoDono);
         System.out.println("\nDono cadastrado com sucesso!");
-
-        System.out.println("Deseja cadastrar um animal agora?");
-        System.out.println("1. Sim");
-        System.out.println("2. Não");
+        System.out.println("________________________________________");
+        System.out.println("|                                      |");
+        System.out.println("| > Deseja cadastrar um animal agora?  |");
+        System.out.println("|                                      |");
+        System.out.println("| 1. Sim                               |");
+        System.out.println("| 2. Não                               |");
+        System.out.println("|______________________________________|");
+        System.out.print("\n> Escolha uma opção: ");
         int opcao = leitura.nextInt();
         leitura.nextLine(); 
 
         if (opcao == 1) {
             //Animal.cadastrarAnimal(leitura);
         } else {
-            System.out.println("Cadastro do dono finalizado. Você pode cadastrar um animal mais tarde.");
+            System.out.println("\nCadastro do dono finalizado. Você pode cadastrar um animal mais tarde.\n");
         }
     }
 
     public static void realizarLoginDono(Scanner leitura, int opcao_login) {
         String identificador;
+        System.out.println("\n> Login Tutor de Pet");
         if (opcao_login == 1) { 
-            System.out.print("Email: ");
+            System.out.print("\nEmail: ");
             identificador = leitura.nextLine();
         } else {
-            System.out.print("CPF: ");
+            System.out.print("\nCPF: ");
             identificador = leitura.nextLine();
         }
     
-        System.out.print("Digite a senha: ");
-        String senha = leitura.nextLine();
+        Dono donoEncontrado = null;
     
         for (Dono dono : donos) {
             if ((opcao_login == 1 && identificador.equalsIgnoreCase(dono.getEmail())) ||
                 (opcao_login == 2 && identificador.equalsIgnoreCase(dono.getCpf()))) {
-                if (senha.equals(dono.getSenha())) { 
-                    System.out.println("\nLogin realizado com sucesso! Bem-vindo, " + dono.getNome() + "!");
-                    return; // por eqt 
-                } else {
-                    System.out.println("\nSenha incorreta. Tente novamente.");
-                    return;
-                }
+                donoEncontrado = dono;
+                break; 
             }
         }
     
-        System.out.println("\nDados de login não encontrados. Verifique as informações ou cadastre-se.");
+        if (donoEncontrado == null) {
+            System.out.println("\nDados de login não encontrados. Verifique as informações ou cadastre-se.");
+            return;
+        }
+    
+        String senha;
+        do {
+            System.out.print("Digite a senha: ");
+            senha = leitura.nextLine();
+    
+            if (!senha.equals(donoEncontrado.getSenha())) {
+                System.out.println("\nSenha incorreta. Tente novamente.");
+            }
+    
+        } while (!senha.equals(donoEncontrado.getSenha()));
+    
+        System.out.println("\nLogin realizado com sucesso! Bem-vindo, " + donoEncontrado.getNome() + "!");
     }
     
 
