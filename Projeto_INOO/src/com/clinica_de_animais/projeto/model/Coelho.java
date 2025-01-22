@@ -1,22 +1,25 @@
 package com.clinica_de_animais.projeto.model;
 
-public class Coelho extends Animal{
+import com.clinica_de_animais.projeto.model.Animal.Caracteristicas;
+
+public class Coelho extends Animal implements Caracteristicas{
     
-    public Coelho(String nome, int idade, boolean paraAdocao){
-        super(nome, idade, paraAdocao);
+    public Coelho(String nome, int idade){
+        super(nome, idade);
     }
-    public Coelho(String nome, boolean paraAdocao){
-        super(nome, paraAdocao);
+    public Coelho(String nome, int idade, String tutor){
+        super(nome, idade, tutor);
+    }
+    public Coelho(String nome){
+        super(nome);
     }
 
-    public void saltar(){
-        System.out.println("O Coelho dá uma duplo twist carpado");
-    }
-
+    @Override
     public void som(){
         System.out.println("Squick squick");
     }
 
+    @Override
     public void exibirFoto(){
         System.out.println("\n             ,\\");
         System.out.println("             \\\\_,");

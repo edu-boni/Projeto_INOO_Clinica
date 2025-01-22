@@ -6,18 +6,17 @@ public class Main {
     public static void main(String[] args) {
         Scanner leitura = new Scanner(System.in);
         Menu menu = new Menu(leitura);
-        Jabuti t1 = new Jabuti(null, false);
-        Coelho c1 = new Coelho(null, false);
-        Cachorro c2 = new Cachorro(null, false);
-        Gato g1 = new Gato(null, false);
-        Passaro p2 = new Passaro(null, false);
+        Jabuti t1 = new Jabuti(null);
+        Coelho c1 = new Coelho(null);
+        Cachorro c2 = new Cachorro(null);
+        Gato g1 = new Gato(null);
+        Passaro p2 = new Passaro(null);
 
         t1.som();
-        t1.saltar();
         t1.exibirFoto();
 
         c1.som();
-        c1.adoecer();
+        c1.adoecer("Pata machucada");
         c1.exibirFoto();
         
         g1.som();
@@ -29,7 +28,6 @@ public class Main {
         
         p2.som();
         p2.exibirFoto();
-        //c3.exibirFoto();
 
         while (true) {
             System.out.println("__________________________________");

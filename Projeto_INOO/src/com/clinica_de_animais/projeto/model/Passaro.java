@@ -1,22 +1,25 @@
 package com.clinica_de_animais.projeto.model;
 
-public class Passaro extends Animal{
+import com.clinica_de_animais.projeto.model.Animal.Caracteristicas;
+
+public class Passaro extends Animal implements Caracteristicas{
     
-    public Passaro(String nome, int idade, boolean paraAdocao){
-        super(nome, idade, paraAdocao);
+    public Passaro(String nome, int idade){
+        super(nome, idade);
     }
-    public Passaro(String nome, boolean paraAdocao){
-        super(nome, paraAdocao);
+    public Passaro(String nome, int idade, String tutor){
+        super(nome, idade, tutor);
+    }
+    public Passaro(String nome){
+        super(nome);
     }
 
-    public void saltar(){
-        System.out.println("O pássaro sai voando.");
-    }
-
+    @Override
     public void som(){
         System.out.println("[cantando] salve o corinthiaaans");
     }
 
+    @Override
     public void exibirFoto(){
         System.out.println("                           .");
         System.out.println("                          | \\/|");
@@ -28,7 +31,7 @@ public class Passaro extends Animal{
         System.out.println("   '.______ (         ) ) \\");
         System.out.println("     '..____ '._       )  )");
         System.out.println("        .' __.--\\  , ,  // (( ");
-        System.out.println("        '.'  mrf|  \\/   (_.'(  ");
+        System.out.println("        '.'     |  \\/   (_.'(  ");
         System.out.println("                '   \\ .' ");
         System.out.println("                 \\   (");
         System.out.println("                  \\   '.'");

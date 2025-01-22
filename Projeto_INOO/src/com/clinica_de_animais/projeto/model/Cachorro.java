@@ -1,18 +1,25 @@
 package com.clinica_de_animais.projeto.model;
 
-public class Cachorro extends Animal {
+import com.clinica_de_animais.projeto.model.Animal.Caracteristicas;
+
+public class Cachorro extends Animal implements Caracteristicas{
     
-    public Cachorro(String nome, int idade, boolean paraAdocao){
-        super(nome, idade, paraAdocao);
+    public Cachorro(String nome, int idade){
+        super(nome, idade);
     }
-    public Cachorro(String nome, boolean paraAdocao){
-        super(nome, paraAdocao);
+    public Cachorro(String nome, int idade, String tutor){
+        super(nome, idade, tutor);
+    }
+    public Cachorro(String nome){
+        super(nome);
     }
 
+    @Override
     public void som(){
         System.out.println("Au au au");
     }
 
+    @Override
     public void exibirFoto(){
         System.out.println("\n       ___");
         System.out.println("    __/_  `.  .-\"\"\"-.");

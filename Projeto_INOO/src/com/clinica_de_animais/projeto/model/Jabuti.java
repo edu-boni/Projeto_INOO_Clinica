@@ -1,22 +1,25 @@
 package com.clinica_de_animais.projeto.model;
 
-public class Jabuti extends Animal {
+import com.clinica_de_animais.projeto.model.Animal.Caracteristicas;
+
+public class Jabuti extends Animal implements Caracteristicas{
     
-    public Jabuti(String nome, int idade, boolean paraAdocao){
-        super(nome, idade, paraAdocao);
+    public Jabuti(String nome, int idade){
+        super(nome, idade);
     }
-    public Jabuti(String nome, boolean paraAdocao){
-        super(nome, paraAdocao);
+    public Jabuti(String nome, int idade, String tutor){
+        super(nome, idade, tutor);
+    }
+    public Jabuti(String nome){
+        super(nome);
     }
 
-    public void saltar(){
-        System.out.println("O jabuti não consegue saltar e se esconde no casco");
-    }
-
+    @Override
     public void som(){
         System.out.println("O jabuti te encara silenciosamente");
     }
 
+    @Override
     public void exibirFoto(){
         System.out.println("\n                    __");
         System.out.println("         .,-;-;-,. /'_\\");
