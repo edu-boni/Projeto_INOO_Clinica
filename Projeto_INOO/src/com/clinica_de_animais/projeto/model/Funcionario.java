@@ -34,7 +34,7 @@ public class Funcionario {
     }
 
     public static void cadastrarFuncionario(Scanner leitura) {
-        System.out.println("\n> Cadastro de Funcionário");
+        System.out.println("\n> Cadastro de Colaborador");
         System.out.print("\nNome: ");
         String nome = leitura.nextLine();
 
@@ -101,11 +101,11 @@ public class Funcionario {
 
         Funcionario novoFuncionario = new Funcionario(nome, cpf, cargo, senha);
         funcionarios.add(novoFuncionario);
-        System.out.println("\nFuncionário cadastrado com sucesso!");
+        System.out.println("\nColaborador cadastrado com sucesso!");
     }
 
     public static void realizarLoginFuncionario(Scanner leitura) {
-        System.out.println("\n> Login Funcionário");
+        System.out.println("\n> Login Colaborador");
         System.out.print("\nCPF: ");
         String identificador = leitura.nextLine().trim();
 
@@ -133,7 +133,7 @@ public class Funcionario {
             System.out.println("\nNenhum funcionário cadastrado.");
             return;
         }
-        System.out.println("\nLista de Funcionários:");
+        System.out.println("\nLista de Colaboradores:");
         for (Funcionario funcionario : funcionarios) {
             System.out.println("- Nome: " + funcionario.getNome() + ", Cargo: " + funcionario.getCargo() + ", CPF: " + funcionario.getCpf());
         }

@@ -55,7 +55,7 @@ public class Dono {
         String email = leitura.nextLine();
         for (Dono dono : donos) {
             if (email.equalsIgnoreCase(dono.getEmail())) {
-                System.out.println("\nEste e-mail não está disponível.\nSe você é o dono deste e-mail, tente realizar o login");
+                System.out.println("\nEste e-mail não está disponível.\nSe você é o tutor deste e-mail, tente realizar o login");
                 return;
             }
         }

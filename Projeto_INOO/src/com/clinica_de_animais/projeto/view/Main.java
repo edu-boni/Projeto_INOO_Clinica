@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner leitura = new Scanner(System.in);
+       Scanner leitura = new Scanner(System.in);
         Menu menu = new Menu(leitura);
         Jabuti t1 = new Jabuti(null);
         Coelho c1 = new Coelho(null);
@@ -36,8 +36,8 @@ public class Main {
             System.out.println("|                                 |");
             System.out.println("| Como deseja acessar?            |");
             System.out.println("|                                 |");
-            System.out.println("| 1. Sou dono de pet              |");
-            System.out.println("| 2. Sou funcionário              |");
+            System.out.println("| 1. Sou tutor de pet             |");
+            System.out.println("| 2. Sou colaborador              |");
             System.out.println("| 0. Sair                         |");
             System.out.println("|_________________________________|");
             System.out.print("\n> Escolha uma opção: ");
@@ -56,37 +56,17 @@ public class Main {
                     menu.exibirMenuDono();
                     break;
                 case 2:
-                    Funcionario.realizarLoginFuncionario(leitura);
+                    Funcionario.realizarLoginColaborador(leitura);
                     break;
                 case 0:
-                    System.out.println("O sistema será encerrado. Obrigado por utilizar!");
+                    System.out.println("\nO sistema será encerrado. Obrigado por utilizar!");
                     leitura.close();
                     return;
                 case 1357:
                     menu.exibirMenuAdministrador();
                 default:
-                    System.out.println("Opção inválida. Tente novamente.");
+                    System.out.println("\nOpção inválida. Tente novamente.");
             }
         }
     }
 }
-
-
-/* while (true) {
-            System.out.println("\nMenu Principal:\n" +
-                               "1. Cadastrar Dono\n" +
-                               "2. Cadastrar Animal\n" +
-                               "3. Cadastrar Funcionário\n" +
-                               "4. Listar Funcionários\n" +
-                               "5. Listar Animais\n" +
-                               "6. Listar Donos e Seus Animais\n" +
-                               "7. Gerar Relatório de Atendimentos\n" +
-                               "8. Remover ou Editar Registro\n" +
-                               "9. Alterar Status de Saúde e Higiene dos Animais\n" +
-                               "0. Sair\n");
-            System.out.print("Escolha uma opção: ");
-            if (!ler.hasNextInt()) { 
-                System.out.println("Por favor, insira um número válido.");
-                ler.nextLine(); 
-                continue;
-            } */
