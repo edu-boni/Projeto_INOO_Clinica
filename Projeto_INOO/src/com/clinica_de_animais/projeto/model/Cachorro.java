@@ -2,21 +2,13 @@ package com.clinica_de_animais.projeto.model;
 
 import com.clinica_de_animais.projeto.model.Animal.Caracteristicas;
 
-public class Cachorro extends Animal implements Caracteristicas{
+public class Cachorro extends Animal implements Caracteristicas {
     
-    public Cachorro(String nome, int idade){
+    public Cachorro(String nome, int idade){    
         super(nome, idade);
     }
     public Cachorro(String nome, int idade, String tutor){
         super(nome, idade, tutor);
-    }
-    public Cachorro(String nome){
-        super(nome);
-    }
-
-    @Override
-    public void som(){
-        System.out.println("Au au au");
     }
 
     @Override
@@ -28,4 +20,6 @@ public class Cachorro extends Animal implements Caracteristicas{
         System.out.println("    ___Y  ,    .'7 /|");
         System.out.println("   (_,___/...-` (_/_/");
     }
+
+     
 }

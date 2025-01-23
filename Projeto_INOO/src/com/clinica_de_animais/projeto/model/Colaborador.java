@@ -3,14 +3,14 @@ package com.clinica_de_animais.projeto.model;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Funcionario {
-    private static ArrayList<Funcionario> funcionarios = new ArrayList<>();
+public class Colaborador {
+    private static ArrayList<Colaborador> colaboradores = new ArrayList<>();
     private String nome;
     private String cpf;
     private String cargo;
     private String senha;
 
-    public Funcionario(String nome, String cpf, String cargo, String senha) {
+    public Colaborador(String nome, String cpf, String cargo, String senha) {
         this.nome = nome;
         this.cpf = cpf;
         this.cargo = cargo;
@@ -33,15 +33,15 @@ public class Funcionario {
         return senha;
     }
 
-    public static void cadastrarFuncionario(Scanner leitura) {
+    public static void cadastrarColaborador(Scanner leitura) {
         System.out.println("\n> Cadastro de Colaborador");
         System.out.print("\nNome: ");
         String nome = leitura.nextLine();
 
         System.out.print("CPF: ");
         String cpf = leitura.nextLine();
-        for (Funcionario funcionario : funcionarios) {
-            if (cpf.equalsIgnoreCase(funcionario.getCpf())) {
+        for (Colaborador colaborador : colaboradores) {
+            if (cpf.equalsIgnoreCase(colaborador.getCpf())) {
                 System.out.println("\nEste CPF já está cadastrado. Tente outro ou faça login.");
                 return;
             }
@@ -99,12 +99,12 @@ public class Funcionario {
                 }
         } while (senha.length() < 4 || !senha.equals(senhaTemp));
 
-        Funcionario novoFuncionario = new Funcionario(nome, cpf, cargo, senha);
-        funcionarios.add(novoFuncionario);
+        Colaborador novoColaborador = new Colaborador(nome, cpf, cargo, senha);
+        colaboradores.add(novoColaborador);
         System.out.println("\nColaborador cadastrado com sucesso!");
     }
 
-    public static void realizarLoginFuncionario(Scanner leitura) {
+    public static void realizarLoginColaborador(Scanner leitura) {
         System.out.println("\n> Login Colaborador");
         System.out.print("\nCPF: ");
         String identificador = leitura.nextLine().trim();
@@ -112,11 +112,11 @@ public class Funcionario {
         System.out.print("\nDigite a senha: ");
         String senha = leitura.nextLine();
 
-        for (Funcionario funcionario : funcionarios) {
-            if (identificador.equalsIgnoreCase(funcionario.getCpf())) {
-                if (senha.equals(funcionario.getSenha())) {
-                    System.out.println("\nLogin realizado com sucesso! Bem-vindo, Funcionário(a) " + funcionario.getNome() + "!");
-                    //chama o menu funcionario provavelmente?
+        for (Colaborador colaborador : colaboradores) {
+            if (identificador.equalsIgnoreCase(colaborador.getCpf())) {
+                if (senha.equals(colaborador.getSenha())) {
+                    System.out.println("\nLogin realizado com sucesso! Bem-vindo, Colaborador(a) " + colaborador.getNome() + "!");
+                    //chama o menu colaborador provavelmente?
                     return;
                 } else {
                     System.out.println("\nSenha incorreta. Tente novamente.");
@@ -128,14 +128,14 @@ public class Funcionario {
         System.out.println("\nDados de login não encontrados. Contate o Administrador!");
     }
 
-    public static void listarFuncionarios() {
-        if (funcionarios.isEmpty()) {
-            System.out.println("\nNenhum funcionário cadastrado.");
+    public static void listarColaboradors() {
+        if (colaboradores.isEmpty()) {
+            System.out.println("\nNenhum colaborador cadastrado.");
             return;
         }
         System.out.println("\nLista de Colaboradores:");
-        for (Funcionario funcionario : funcionarios) {
-            System.out.println("- Nome: " + funcionario.getNome() + ", Cargo: " + funcionario.getCargo() + ", CPF: " + funcionario.getCpf());
+        for (Colaborador colaborador : colaboradores) {
+            System.out.println("- Nome: " + colaborador.getNome() + ", Cargo: " + colaborador.getCargo() + ", CPF: " + colaborador.getCpf());
         }
     }
 }

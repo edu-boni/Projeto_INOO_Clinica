@@ -16,7 +16,7 @@ public class Menu {
             System.out.println("|                                 |");
             System.out.println("| Como deseja acessar?            |");
             System.out.println("|                                 |");
-            System.out.println("| 1. Cadastrar novo funcionário   |");
+            System.out.println("| 1. Cadastrar novo colaborador   |");
             System.out.println("| 2. Cadastrar animal para adoção |");
             System.out.println("| 3. Listar todos os cadastros    |");
             System.out.println("| 0. Sair                         |");
@@ -34,14 +34,14 @@ public class Menu {
 
             switch (opcao_adm) {
                 case 1:
-                    Funcionario.cadastrarFuncionario(leitura);
+                    Colaborador.cadastrarColaborador(leitura);
                     break;
                 case 2:
-                //cadastarar nimal
+                    Animal.cadastrarAnimal(leitura);
                     break;
                 case 3:
                     //listar tuido
-                    Dono.listarDonos();
+                    Tutor.listarTutores();
                     break;
                 case 0:
                     System.out.println("Voltando ao menu.");
@@ -54,11 +54,11 @@ public class Menu {
         }
     }
 
-    public void exibirMenuDono(){
+    public void exibirMenuTutor(){
         while (true) {
             System.out.println("________________________");
             System.out.println("|                       |");
-            System.out.println("| > Dono de Pet         |");
+            System.out.println("| > Tutor de Pet        |");
             System.out.println("|                       |");
             System.out.println("| 1. Realizar cadastro  |");
             System.out.println("| 2. Realizar login     |");
@@ -77,7 +77,7 @@ public class Menu {
 
             switch (opcao_login) {
                 case 1:
-                    Dono.cadastrarDono(leitura);
+                    Tutor.cadastrarTutor(leitura);
                     break;
                 case 2:
                     menuLogar();
@@ -97,7 +97,7 @@ public class Menu {
         while (true) {
             System.out.println("__________________________");
             System.out.println("|                         |");
-            System.out.println("| > Dono de Pet           |");
+            System.out.println("| > Tutor de Pet          |");
             System.out.println("|                         |");
             System.out.println("| 1. Logar usando email   |");
             System.out.println("| 2. Logar usando CPF     |");
@@ -120,7 +120,7 @@ public class Menu {
             }else if (opcao_login != 0 && opcao_login != 1 && opcao_login != 2){
                 System.out.println("Opção inválida. Tente novamente.");
             }else{
-                Dono.realizarLoginDono(leitura, opcao_login);
+                Tutor.realizarLoginTutor(leitura, opcao_login);
             }
         }
     }

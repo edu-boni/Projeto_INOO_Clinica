@@ -4,30 +4,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-       Scanner leitura = new Scanner(System.in);
+        Scanner leitura = new Scanner(System.in);
         Menu menu = new Menu(leitura);
-        Jabuti t1 = new Jabuti(null);
-        Coelho c1 = new Coelho(null);
-        Cachorro c2 = new Cachorro(null);
-        Gato g1 = new Gato(null);
-        Passaro p2 = new Passaro(null);
-
-        t1.som();
-        t1.exibirFoto();
-
-        c1.som();
-        c1.adoecer("Pata machucada");
-        c1.exibirFoto();
-        
-        g1.som();
-        g1.exibirFoto();
-        
-        c2.som();
-        c2.sujar();
-        c2.exibirFoto();
-        
-        p2.som();
-        p2.exibirFoto();
 
         while (true) {
             System.out.println("__________________________________");
@@ -53,10 +31,10 @@ public class Main {
 
             switch (opcao) {
                 case 1:
-                    menu.exibirMenuDono();
+                    menu.exibirMenuTutor();
                     break;
                 case 2:
-                    Funcionario.realizarLoginColaborador(leitura);
+                    Colaborador.realizarLoginColaborador(leitura);
                     break;
                 case 0:
                     System.out.println("\nO sistema será encerrado. Obrigado por utilizar!");

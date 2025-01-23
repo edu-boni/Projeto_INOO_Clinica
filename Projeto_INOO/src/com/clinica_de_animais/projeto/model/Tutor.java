@@ -3,8 +3,8 @@ package com.clinica_de_animais.projeto.model;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Dono {
-    private static ArrayList<Dono> donos = new ArrayList<>();
+public class Tutor {
+    private static ArrayList<Tutor> tutores = new ArrayList<>();
     private String nome;
     private String email;
     private String cpf;
@@ -12,7 +12,7 @@ public class Dono {
     private String endereco;
     private String senha;
 
-    public Dono(String nome, String email, String cpf, String telefone, String endereco, String senha) {
+    public Tutor(String nome, String email, String cpf, String telefone, String endereco, String senha) {
         this.nome = nome;
         this.email = email;
         this.cpf = cpf;
@@ -45,7 +45,7 @@ public class Dono {
        return senha;
     }
 
-    public static void cadastrarDono(Scanner leitura) {
+    public static void cadastrarTutor(Scanner leitura) {
         System.out.println("\n> Cadastro de Tutor de Pet");
 
         System.out.print("\nNome: ");
@@ -53,8 +53,8 @@ public class Dono {
 
         System.out.print("Email: ");
         String email = leitura.nextLine();
-        for (Dono dono : donos) {
-            if (email.equalsIgnoreCase(dono.getEmail())) {
+        for (Tutor tutor : tutores) {
+            if (email.equalsIgnoreCase(tutor.getEmail())) {
                 System.out.println("\nEste e-mail não está disponível.\nSe você é o tutor deste e-mail, tente realizar o login");
                 return;
             }
@@ -62,9 +62,9 @@ public class Dono {
 
         System.out.print("CPF: ");
         String cpf = leitura.nextLine();
-        for (Dono dono : donos) {
-            if (cpf.equalsIgnoreCase(dono.getCpf())) {
-                System.out.println("\nEste CPF não está disponível.\nSe você é o dono deste CPF, tente realizar o login");
+        for (Tutor tutor : tutores) {
+            if (cpf.equalsIgnoreCase(tutor.getCpf())) {
+                System.out.println("\nEste CPF não está disponível.\nSe você é o tutor deste CPF, tente realizar o login");
                 return;
             }
         }
@@ -94,9 +94,11 @@ public class Dono {
             }
         } while (senha.length() < 4 || !senha.equals(senhaTemp));
 
-        Dono novoDono = new Dono(nome, email, cpf, telefone, endereco, senha);
-        donos.add(novoDono);
-        System.out.println("\nDono cadastrado com sucesso!");
+        Tutor novoTutor = new Tutor(nome, email, cpf, telefone, endereco, senha);
+        tutores.add(novoTutor);
+
+        System.out.println("\nTutor cadastrado com sucesso!");
+
         System.out.println("________________________________________");
         System.out.println("|                                      |");
         System.out.println("| > Deseja cadastrar um animal agora?  |");
@@ -108,14 +110,16 @@ public class Dono {
         int opcao = leitura.nextInt();
         leitura.nextLine(); 
 
+        //FAZER VERIFICACAO
         if (opcao == 1) {
-            //Animal.cadastrarAnimal(leitura);
+            Animal.cadastrarAnimal(leitura, cpf);
         } else {
-            System.out.println("\nCadastro do dono finalizado. Você pode cadastrar um animal mais tarde.\n");
+            System.out.println("\nCadastro do tutor finalizado. Você pode cadastrar um animal mais tarde.\n");
         }
+        
     }
 
-    public static void realizarLoginDono(Scanner leitura, int opcao_login) {
+    public static void realizarLoginTutor(Scanner leitura, int opcao_login) {
         String identificador;
         System.out.println("\n> Login Tutor de Pet");
         if (opcao_login == 1) { 
@@ -126,17 +130,17 @@ public class Dono {
             identificador = leitura.nextLine();
         }
     
-        Dono donoEncontrado = null;
+        Tutor tutorEncontrado = null;
     
-        for (Dono dono : donos) {
-            if ((opcao_login == 1 && identificador.equalsIgnoreCase(dono.getEmail())) ||
-                (opcao_login == 2 && identificador.equalsIgnoreCase(dono.getCpf()))) {
-                donoEncontrado = dono;
+        for (Tutor tutor : tutores) {
+            if ((opcao_login == 1 && identificador.equalsIgnoreCase(tutor.getEmail())) ||
+                (opcao_login == 2 && identificador.equalsIgnoreCase(tutor.getCpf()))) {
+                tutorEncontrado = tutor;
                 break; 
             }
         }
     
-        if (donoEncontrado == null) {
+        if (tutorEncontrado == null) {
             System.out.println("\nDados de login não encontrados. Verifique as informações ou cadastre-se.");
             return;
         }
@@ -146,25 +150,25 @@ public class Dono {
             System.out.print("Digite a senha: ");
             senha = leitura.nextLine();
     
-            if (!senha.equals(donoEncontrado.getSenha())) {
+            if (!senha.equals(tutorEncontrado.getSenha())) {
                 System.out.println("\nSenha incorreta. Tente novamente.");
             }
     
-        } while (!senha.equals(donoEncontrado.getSenha()));
+        } while (!senha.equals(tutorEncontrado.getSenha()));
     
-        System.out.println("\nLogin realizado com sucesso! Bem-vindo, " + donoEncontrado.getNome() + "!");
+        System.out.println("\nLogin realizado com sucesso! Bem-vindo, " + tutorEncontrado.getNome() + "!");
     }
     
 
-    public static void listarDonos() {
-        if (donos.isEmpty()) {
-            System.out.println("\nNão há donos cadastrados.");
+    public static void listarTutores() {
+        if (tutores.isEmpty()) {
+            System.out.println("\nNão há tutores cadastrados.");
         } else {
-            for (Dono dono : donos) {
-                System.out.println("Nome: " + dono.getNome());
-                System.out.println("Email: " + dono.getEmail());
-                System.out.println("Telefone: " + dono.getTelefone());
-                System.out.println("Endereço: " + dono.getEndereco());
+            for (Tutor tutor : tutores) {
+                System.out.println("Nome: " + tutor.getNome());
+                System.out.println("Email: " + tutor.getEmail());
+                System.out.println("Telefone: " + tutor.getTelefone());
+                System.out.println("Endereço: " + tutor.getEndereco());
                 System.out.println("-------------------------");
             }
         }
