@@ -155,11 +155,22 @@ public class Tutor {
             }
     
         } while (!senha.equals(tutorEncontrado.getSenha()));
-    
+        setTutorLogado(tutorEncontrado);
         System.out.println("\nLogin realizado com sucesso! Bem-vindo, " + tutorEncontrado.getNome() + "!");
+        Menu.exibirMenuLogadoTutor(leitura);
     }
     
+    private static Tutor tutorLogado;
 
+    public static void setTutorLogado(Tutor tutor) {
+        tutorLogado = tutor;
+    }
+
+    public static Tutor getTutorLogado() {
+        return tutorLogado;
+    }
+
+    
     public static void listarTutores() {
         if (tutores.isEmpty()) {
             System.out.println("\nNão há tutores cadastrados.");
@@ -173,4 +184,21 @@ public class Tutor {
             }
         }
     }
+
+    public static void exibirTutorLogado(Scanner leitura) {
+        System.out.println("_________________________________________");
+        System.out.println("|                                        |");
+        System.out.println("|            Perfil do Tutor             |");
+        System.out.println("|________________________________________|");
+        System.out.println("| Nome: " + tutorLogado.getNome());
+        System.out.println("| Email: " + tutorLogado.getEmail());
+        System.out.println("| CPF: " + tutorLogado.getCpf());
+        System.out.println("| Telefone: " + tutorLogado.getTelefone());
+        System.out.println("| Endereço: " + tutorLogado.getEndereco());
+        System.out.println("|________________________________________|");
+    
+        System.out.println("\nPressione a tecla ENTER para retornar ao menu anterior...");
+        leitura.nextLine(); 
+    }
+    
 }

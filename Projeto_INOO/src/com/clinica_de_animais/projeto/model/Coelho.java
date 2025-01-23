@@ -14,10 +14,6 @@ public class Coelho extends Animal implements Caracteristicas{
         super(nome);
     }
 
-    @Override
-    public void som(){
-        System.out.println("Squick squick");
-    }
 
     @Override
     public void exibirFoto(){

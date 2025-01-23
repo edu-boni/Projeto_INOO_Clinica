@@ -14,10 +14,6 @@ public class Gato extends Animal implements Caracteristicas{
         super(nome);
     }
 
-    @Override
-    public void som(){
-        System.out.println("Miaaau");
-    }
 
     @Override
     public void exibirFoto(){

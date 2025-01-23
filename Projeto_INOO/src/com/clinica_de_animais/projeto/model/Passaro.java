@@ -14,10 +14,6 @@ public class Passaro extends Animal implements Caracteristicas{
         super(nome);
     }
 
-    @Override
-    public void som(){
-        System.out.println("[cantando] salve o corinthiaaans");
-    }
 
     @Override
     public void exibirFoto(){

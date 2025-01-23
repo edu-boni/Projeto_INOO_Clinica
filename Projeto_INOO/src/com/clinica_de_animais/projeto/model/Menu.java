@@ -37,7 +37,7 @@ public class Menu {
                     Colaborador.cadastrarColaborador(leitura);
                     break;
                 case 2:
-                    Animal.cadastrarAnimal(leitura);
+                    //Animal.cadastrarAnimal(leitura, cpf);
                     break;
                 case 3:
                     //listar tuido
@@ -121,6 +121,64 @@ public class Menu {
                 System.out.println("Opção inválida. Tente novamente.");
             }else{
                 Tutor.realizarLoginTutor(leitura, opcao_login);
+            }
+        }
+    }
+
+
+    public static void exibirMenuLogadoTutor(Scanner leitura){
+        Tutor tutorLogado = Tutor.getTutorLogado();
+        if (tutorLogado == null) {
+            System.out.println("\nNenhum tutor está logado.");
+            return;
+        }
+        while (true) {
+            System.out.println("_________________________________________");
+            System.out.println("|                                        |");
+            System.out.println(  "| Olá, " + tutorLogado.getNome() + "!    |");
+            System.out.println("|                                        |");
+            System.out.println("| 1. Exibir perfil                       |");
+            System.out.println("| 2. Cadastrar novo pet                  |");
+            System.out.println("| 3. Animais disponíveis para adoção     |");
+            System.out.println("| 4. Ver seus pets                       |");
+            System.out.println("| 5. Atualizar estado do pet             |");
+            System.out.println("| 0. Sair                                |");
+            System.out.println("|________________________________________|");
+            System.out.print("\n> Escolha uma opção: ");
+
+            if (!leitura.hasNextInt()) {
+                System.out.println("Por favor, insira um número válido.");
+                leitura.nextLine();
+                continue;
+            }
+
+            int opcao = leitura.nextInt();
+            leitura.nextLine();
+
+            switch (opcao){
+                case 1: 
+                    Tutor.exibirTutorLogado(leitura);
+                    break;
+                
+                case 2:
+                    Animal.cadastrarAnimal(leitura, tutorLogado.getCpf());
+                    break;
+                
+                case 3:
+                    Animal.exibirAnimaisDisponiveis(leitura, tutorLogado);
+                    break;
+                
+                case 4:
+                    Animal.exibirAnimalPorTutor(tutorLogado.getCpf(), leitura);
+                    break;
+                
+                case 5:
+                    Animal.exibirMenuEstadoPet(tutorLogado, leitura);
+                    break;
+                case 0:
+                    System.out.println("Você foi deslogado com sucesso!");
+                    Tutor.setTutorLogado(null);
+                    return;
             }
         }
     }

@@ -15,11 +15,6 @@ public class Jabuti extends Animal implements Caracteristicas{
     }
 
     @Override
-    public void som(){
-        System.out.println("O jabuti te encara silenciosamente");
-    }
-
-    @Override
     public void exibirFoto(){
         System.out.println("\n                    __");
         System.out.println("         .,-;-;-,. /'_\\");
